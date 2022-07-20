@@ -33,7 +33,8 @@ jobs:
           echo test, and deploy your project.
           echo ${{ github.event.master_branch != 'master'  }}
           echo ${{ github.event.master_branch == 'master'  }}
-          echo ${{ github.event.master_branch }}
+          echo ${{ github.event.ref }}
+          echo ${{ github.event.ref_type }}
 
       - name: Dump GitHub context
         env:
