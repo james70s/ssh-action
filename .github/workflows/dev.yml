@@ -5,8 +5,10 @@ name: Dev
 # events but only for the master branch
 on:
   push:
-    branches-ignore: [master]
-    tags: [v*]
+    branches-ignore:
+      - master
+    tags:
+      - v*
   pull_request:
     branches-ignore: [master]
     tags: [v*]
