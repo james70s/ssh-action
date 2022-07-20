@@ -6,31 +6,31 @@ name: Dev
 on:
   create:
     tags:
-      - v*
+      - m*
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    outputs:
-      branch: ${{ steps.check_step.outputs.branch }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+  # check:
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     branch: ${{ steps.check_step.outputs.branch }}
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
 
-      - name: Get current branch
-        id: check_step
-        run: |
-          raw=$(git branch -r --contains ${{ github.ref }})
-          branch=${raw##*/}
-          echo "::set-output name=branch::$branch"
-          echo "Branch is $branch."
+  #     - name: Get current branch
+  #       id: check_step
+  #       run: |
+  #         raw=$(git branch -r --contains ${{ github.ref }})
+  #         branch=${raw##*/}
+  #         echo "::set-output name=branch::$branch"
+  #         echo "Branch is $branch."
 
   # This workflow contains a single job called "build"
   build:
-    if: ${{ check.outputs.branch != 'master' }}
+    # if: ${{ needs.check.outputs.branch != 'master' }}
 
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
