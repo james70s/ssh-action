@@ -32,4 +32,4 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           echo ${{ github.ref != 'ref/heads/master' }}
-          echo ${{ github.ref }}
+          echo ${{ github }}
