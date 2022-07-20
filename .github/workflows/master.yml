@@ -4,9 +4,12 @@ name: Master
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  push:
-    branches: [master]
-    tags: [v*]
+  create:
+    branches:
+      - master
+    tags:
+      - v*
+
   pull_request:
     branches: [master]
     tags: [v*]
