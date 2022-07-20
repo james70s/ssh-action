@@ -7,8 +7,6 @@ on:
   create:
     branches-ignore:
       - master
-    tags:
-      - v*
 
   pull_request:
     branches-ignore: [master]
