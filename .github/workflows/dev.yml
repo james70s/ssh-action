@@ -5,10 +5,10 @@ name: Dev
 # events but only for the master branch
 on:
   push:
-    branches: ["!master"]
+    branches-ignore: [master]
     tags: [v*]
   pull_request:
-    branches: ["!master"]
+    branches-ignore: [master]
     tags: [v*]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
