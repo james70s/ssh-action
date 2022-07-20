@@ -33,4 +33,8 @@ jobs:
           echo test, and deploy your project.
           echo ${{ github.event.base_ref != 'ref/heads/master' }}
           echo ${{ github.event.base_ref }}
-          echo ${{ toJson(github) }}
+      
+      - name: Dump GitHub context
+       env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+       run: echo "$GITHUB_CONTEXT"
