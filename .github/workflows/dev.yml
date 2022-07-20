@@ -6,7 +6,9 @@ name: Dev
 on:
   create:
     tags:
-      - "m*"
+      - m*
+    tags-ignore:
+      - v*
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
