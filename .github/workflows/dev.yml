@@ -31,5 +31,6 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo ${{ github.ref != 'ref/heads/master' }}
-          echo ${{ github }}
+          echo ${{ github.event.base_ref != 'ref/heads/master' }}
+          echo ${{ github.event.base_ref }}
+          echo ${{ toJson(github) }}
