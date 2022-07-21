@@ -56,7 +56,7 @@ jobs:
           raw= ${{ github.evnet.ref }}
           tag=${raw##*/}
           echo "Tag is $tag."
-          cat TAG=$tag >> $GITHUB_ENV
+          echo TAG=$tag >> $GITHUB_ENV
           echo $GITHUB_ENV
 
       - name: Dump GitHub context
