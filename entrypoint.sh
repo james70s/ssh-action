@@ -58,6 +58,7 @@ executeSCP() {
 
     # scp will fail if COMMAND is empty, this condition protects scp
     if [[ $COMMAND = *[!\ ]* ]]; then
+      # from_path/file1.txt,to_path/file_name.txt
       IFS=',' read -ra FILES <<< $COMMAND
       echo "scp -r -o StrictHostKeyChecking=no -p ${INPUT_PORT:-22} ${FILES[0]} $INPUT_USER@$INPUT_HOST:${FILES[1]}"
       scp -r -o StrictHostKeyChecking=no -p ${INPUT_PORT:-22} ${FILES[0]} $INPUT_USER@$INPUT_HOST:${FILES[1]}
