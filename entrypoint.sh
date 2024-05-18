@@ -60,8 +60,8 @@ executeSCP() {
     if [[ $COMMAND = *[!\ ]* ]]; then
       # from_path/file1.txt,to_path/file_name.txt
       IFS=',' read -ra FILES <<< $COMMAND
-      echo "scp -r -o StrictHostKeyChecking=no -p ${INPUT_PORT:-22} ${FILES[0]} $INPUT_USER@$INPUT_HOST:${FILES[1]}"
-      scp -r -o StrictHostKeyChecking=no -p ${INPUT_PORT:-22} ${FILES[0]} $INPUT_USER@$INPUT_HOST:${FILES[1]}
+      echo "scp -r -o StrictHostKeyChecking=no -P INPUT_PORT ${FILES[0]} INPUT_USER@INPUT_HOST:${FILES[1]}"
+      scp -r -o StrictHostKeyChecking=no -P ${INPUT_PORT:-22} ${FILES[0]} $INPUT_USER@$INPUT_HOST:${FILES[1]}
     fi
   done <<< $LINES
 }
